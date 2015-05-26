@@ -19,21 +19,21 @@
 	<context:component-scan base-package="com.vde.*" />
 
 
-<!-- 	<bean id="propertyConfigurer" -->
-<!-- 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" -->
-<!-- 		p:location="/WEB-INF/jdbc.properties" /> -->
-
-<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" -->
-<!-- 		p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.databaseurl}" -->
-<!-- 		p:username="${jdbc.username}" p:password="${jdbc.password}" /> -->
-
-
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/StudentDB" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	<property name="url" value="jdbc:mysql://127.0.0.1:3306/PersonDB" />
+	<property name="username" value="root" />
+	<property name="password" value="root" />
 	</bean>
+
+
+<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- <property name="driverClassName" value="org.postgresql.Driver"/> -->
+<!-- <property name="url" value="jdbc:postgresql://localhost/personsdb"/> -->
+<!-- <property name="username" value="postgres"/> -->
+<!-- <property name="password" value="root"/> -->
+<!-- </bean> -->
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -46,8 +46,31 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">${jdbc.dialect}</prop>
+<!-- 				<prop key="hbm2ddl.auto">create</prop> -->
+<!-- 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop> -->
+<!-- 				<prop key="hibernate.show_sql">true</prop> -->
+<!-- 				 <prop key="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop> -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop> -->
 				<prop key="hibernate.show_sql">true</prop>
+				<!-- Database connection settings -->
+<!-- 		<prop key="connection.url">jdbc:postgresql://localhost:5432/personsdb</prop> -->
+<!-- 		<prop key="connection.driver_class">org.postgresql.Driver</prop> -->
+<!-- 		<prop key="connection.username">postgres</prop> -->
+<!-- 		<prop key="connection.password">root</prop> -->
+<!-- 		<prop key="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop> -->
+		
+<!-- 		SQL dialect -->
+<!-- 		<prop key="dialect">org.hibernate.dialect.PostgreSQLDialect</prop> -->
+
+<!-- 		Echo all executed SQL to stdout -->
+<!-- 		<prop key="show_sql">true</prop> -->
+
+<!-- 		Enable Hibernate's automatic session context management -->
+<!-- 		<prop key="current_session_context_class">thread</prop> -->
+
+<!-- 		Drop and re-create the database schema on startup -->
+<!-- 		<prop key="hbm2ddl.auto">create</prop> -->
 			</props>
 		</property>
 	</bean>

@@ -40,7 +40,7 @@ public class PersonController {
 			personService.add(person);
 			personResult = person;
 			break;
-		case "EDIT":
+		case "UPDATE":
 			personService.edit(person);
 			personResult = person;
 			break;

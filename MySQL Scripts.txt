@@ -1,0 +1,21 @@
+----------MySQL sql Scripts------------
+
+<Create Schema>
+
+<sqlscript>
+CREATE SCHEMA `persondb` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+</sqlscript>
+
+<Cteate Table "person">
+
+<sqlscript>
+CREATE TABLE `persondb`.`person` (
+  `personid` INT NOT NULL AUTO_INCREMENT,
+  `firstname` VARCHAR(45) NOT NULL,
+  `lastname` VARCHAR(45) NOT NULL,
+  `age` INT NOT NULL,
+  `gender` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`personid`));
+</sqlscript>

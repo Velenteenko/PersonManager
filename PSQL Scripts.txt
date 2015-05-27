@@ -1,0 +1,42 @@
+--------PstgreSQL SQL Scripts ----------------
+
+<Create database>
+
+<sqlscript>
+-- Database: persondb
+
+-- DROP DATABASE persondb;
+
+CREATE DATABASE persondb
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'ru_UA.UTF-8'
+       LC_CTYPE = 'ru_UA.UTF-8'
+       CONNECTION LIMIT = -1;
+</sqlscript>
+
+<Create  table>
+
+<sqlscript>
+-- Table: person
+
+-- DROP TABLE person;
+
+CREATE TABLE person
+(
+  personid serial NOT NULL,
+  age integer,
+  firstname character varying(255),
+  gender character varying(255),
+  lastname character varying(255),
+  login character varying(255),
+  password character varying(255),
+  CONSTRAINT person_pkey PRIMARY KEY (personid)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE person
+  OWNER TO postgres;
+</sqlscript>

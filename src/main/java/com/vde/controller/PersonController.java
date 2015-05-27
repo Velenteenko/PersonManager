@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,8 +29,8 @@ public class PersonController {
 		return "person";
 	}
 
-	@RequestMapping(value = "/person.doit", method = RequestMethod.POST)
-	public String doActions(@ModelAttribute Person person, BindingResult result, @RequestParam String action, Map<String, Object> map) {
+	@RequestMapping(value = "/person.actions", method = RequestMethod.POST)
+	public String doActions(@ModelAttribute Person person, @RequestParam String action, Map<String, Object> map) {
 
 		Person personResult = new Person();
 

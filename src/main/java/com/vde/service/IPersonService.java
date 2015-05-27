@@ -5,6 +5,7 @@ import java.util.List;
 import com.vde.model.Person;
 
 public interface IPersonService {
+
 	public void add(Person person);
 
 	public void edit(Person person);
